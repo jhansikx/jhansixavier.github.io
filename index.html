@@ -1,328 +1,863 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jhansi Xavier — PhD Researcher in Machine Learning & Graph Neural Networks at Florida Atlantic University." />
-  <meta name="author" content="Jhansi Xavier" />
-  <meta property="og:title" content="Jhansi Xavier — Portfolio" />
-  <meta property="og:description" content="PhD Researcher specializing in Constraint-First ML Systems, Graph Neural Networks, and Synthetic Transportation Networks." />
-  <meta property="og:url" content="https://jhansixavier.github.io" />
-  <meta property="og:type" content="website" />
-  <title>Jhansi Xavier — Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jhansi Xavier - Senior Software Architect, Technical Lead, and Ph.D. Candidate (Florida Atlantic University) with 15+ years experience in cloud modernization, AI solutions, and enterprise platforms.">
+    <meta name="keywords" content="Software Architect, Technical Lead, AI, Cloud Platforms, Ph.D. Candidate, Distributed Systems, Microservices">
+    <meta property="og:title" content="Jhansi Xavier - Software Architect & Ph.D. Candidate">
+    <meta property="og:description" content="15+ years leading cloud modernization, AI-enabled solutions, and enterprise platforms. Ph.D. Candidate at Florida Atlantic University.">
+    <meta property="og:type" content="website">
+    <title>Jhansi Xavier - Software Architect & Ph.D. Candidate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        nav li {
+            display: inline;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        #home {
+            padding: 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        #home img.banner {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        
+        .headshot {
+            display: none;
+        }
+        
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 3rem 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        section h2 {
+            color: #1e3a8a;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #3b82f6;
+        }
+        
+        section h3 {
+            color: #3b82f6;
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        section h4 {
+            color: #64748b;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Impact Dashboard */
+        #impact ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        #impact li {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        #impact li:hover {
+            transform: translateY(-5px);
+        }
+        
+        /* Case Studies */
+        .case-study {
+            background: #f8fafc;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .case-study-header {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .case-study-header:hover {
+            background-color: #e0f2fe;
+        }
+        
+        .case-study-header h3 {
+            margin: 0;
+            color: #1e3a8a;
+        }
+        
+        .accordion-icon {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            transition: transform 0.3s ease;
+        }
+        
+        .case-study-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .case-study-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 2rem;
+        }
+        
+        .case-study-content.active {
+            max-height: 2000px;
+            padding: 0 2rem 2rem 2rem;
+        }
+        
+        .case-study h3 {
+            margin-top: 0;
+        }
+        
+        /* Lists */
+        ul {
+            margin-left: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+        }
+        
+        /* Links */
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #1e3a8a;
+            text-decoration: underline;
+        }
+        
+        /* Contact Section */
+        #contact ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        #contact li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+        
+        /* Table Styles */
+        tr th, tr td {
+            border: 1px solid #e6e6e6;
+            padding: 0.75rem;
+        }
+        
+        tr th {
+            background-color: #1e3a8a;
+            color: white;
+        }
+        
+        /* Career Timeline */
+        .job {
+            background: #f0f9ff;
+            margin: 1rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            overflow: hidden;
+        }
+        
+        .job-header {
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .job-header:hover {
+            background-color: #dbeafe;
+        }
+        
+        .job-header h3 {
+            margin: 0;
+            color: #1e3a8a;
+        }
+        
+        .job-header .role {
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 0.25rem;
+        }
+        
+        .job-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 2rem;
+        }
+        
+        .job-content.active {
+            max-height: 1500px;
+            padding: 0 2rem 2rem 2rem;
+        }
+        
+        .job h3 {
+            margin-top: 0;
+            color: #1e3a8a;
+        }
+        
+        .job .role {
+            color: #3b82f6;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .job .duration {
+            color: #64748b;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+        
+        .job ul {
+            margin-top: 0.5rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #home img.banner {
+                max-height: 250px;
+            }
+            
+            #home {
+                padding: 0;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+    <script>
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.accordion-icon');
+            
+            element.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+    </script>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#ai-research">AI & Research</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#leadership">Leadership</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#adr">ADR</a></li>
+            <li><a href="#resume">Career</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-  <!-- Scroll progress indicator -->
-  <div class="scroll-progress" role="progressbar" aria-label="Reading progress"></div>
+    <section id="home">
+        <img src="Portfolio/Banner.png" alt="Jhansi Xavier - Engineering Leadership | Software Architecture | Cloud & AI Solutions" class="banner">
+    </section>
 
-  <!-- ======= Navigation ======= -->
-  <nav class="nav" role="navigation" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="#hero" class="nav__logo">jhansi<span>.</span>xavier</a>
-      <ul class="nav__links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- ======= Hero ======= -->
-  <section id="hero" class="hero">
-    <div class="container">
-      <div class="hero__grid">
-        <div class="hero__content">
-          <div class="hero__tag">Open to Research Collaborations</div>
-          <h1 class="hero__name">
-            Jhansi<br />
-            <span class="highlight">Xavier</span>
-          </h1>
-          <p class="hero__title">
-            <span class="role">PhD Researcher</span> · Florida Atlantic University
-          </p>
-          <p class="hero__bio">
-            I build machine learning systems that think about constraints first.
-            My research combines graph neural networks with formal topology
-            guarantees to generate realistic synthetic road networks — no
-            post-processing, no violations, by construction.
-          </p>
-          <div class="hero__actions">
-            <a href="#research" class="btn btn--primary">
-              View Research
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#contact" class="btn btn--outline">Get in Touch</a>
-          </div>
-        </div>
-        <div class="hero__avatar" aria-hidden="true">
-          <div class="hero__avatar-inner">👩‍🔬</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= About ======= -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Background</p>
-        <h2 class="section-title">About Me</h2>
-      </div>
-      <div class="about__grid">
-        <div class="about__text fade-in">
-          <p>
-            I'm a PhD student at <strong>Florida Atlantic University</strong>, advised by
-            <strong>Dr. KwangSoo Yang</strong>. My research sits at the intersection of
-            machine learning, graph theory, and spatial computing — where formal
-            guarantees matter as much as empirical performance.
-          </p>
-          <p>
-            My dissertation introduces the <strong>Constraint-First design paradigm</strong>:
-            instead of learning unconstrained outputs and fixing violations after the
-            fact, structural constraints are enforced by construction. This approach
-            eliminates entire classes of errors before they can occur.
-          </p>
-          <p>
-            I apply this paradigm to synthetic transportation network generation —
-            producing planar, connected, degree-bounded road graphs whose geometry
-            matches real OpenStreetMap data with sub-meter Fréchet distance.
-          </p>
-          <p>
-            Prior to my PhD, I completed a data science specialization on Coursera
-            and have broad experience with statistical modeling, geospatial analysis,
-            and deep learning pipelines.
-          </p>
-        </div>
-        <div class="about__stats fade-in">
-          <div class="stat-card">
-            <div class="stat-card__value">100%</div>
-            <div class="stat-card__label">Topological validity (planarity, connectivity, degree)</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card__value">0.48m</div>
-            <div class="stat-card__label">Fréchet distance to real road geometry</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card__value">0.04</div>
-            <div class="stat-card__label">KS distance — best curvature distribution match</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card__value">2+</div>
-            <div class="stat-card__label">Cities evaluated (Boca Raton, Houston)</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= Research & Projects ======= -->
-  <section id="research" class="research">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Work</p>
-        <h2 class="section-title">Research &amp; Projects</h2>
-      </div>
-      <div class="research__grid">
-
-        <article class="project-card fade-in">
-          <div class="project-card__icon">🛣️</div>
-          <h3 class="project-card__title">HybridSTNG</h3>
-          <p class="project-card__desc">
-            Hybrid Framework for Synthetic Transportation Network Generation.
-            The first method to guarantee planarity, connectivity, and degree bounds
-            by construction while learning realistic road curvature via a GNN-VAE.
-            Achieves 100% structural validity and a Fréchet distance of 0.48 m
-            across all baseline comparisons.
-          </p>
-          <div class="project-card__tags">
-            <span class="tag">Graph Neural Networks</span>
-            <span class="tag">VAE</span>
-            <span class="tag">Topology</span>
-            <span class="tag">OpenStreetMap</span>
-          </div>
-          <a href="https://github.com/jhansikx/constraint-first-ml-systems" target="_blank" rel="noopener noreferrer" class="project-card__link">
-            View Repository
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </article>
-
-        <article class="project-card fade-in">
-          <div class="project-card__icon">📄</div>
-          <h3 class="project-card__title">Research Papers</h3>
-          <p class="project-card__desc">
-            A collection of academic papers and manuscripts covering constraint-first
-            ML architectures, graph topology guarantees, and spatial network generation.
-            Currently under journal review.
-          </p>
-          <div class="project-card__tags">
-            <span class="tag">Manuscripts</span>
-            <span class="tag">Graph Theory</span>
-            <span class="tag">ML Systems</span>
-          </div>
-          <a href="https://github.com/jhansikx/papers" target="_blank" rel="noopener noreferrer" class="project-card__link">
-            View Papers
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </article>
-
-        <article class="project-card fade-in">
-          <div class="project-card__icon">📊</div>
-          <h3 class="project-card__title">Data Science Capstone</h3>
-          <p class="project-card__desc">
-            Applied machine learning capstone project from the IBM Data Science Professional
-            Certificate on Coursera. Covers exploratory data analysis, feature engineering,
-            predictive modeling, and visualization with Python and Jupyter Notebooks.
-          </p>
-          <div class="project-card__tags">
-            <span class="tag">Python</span>
-            <span class="tag">Jupyter</span>
-            <span class="tag">EDA</span>
-            <span class="tag">Scikit-learn</span>
-          </div>
-          <a href="https://github.com/jhansikx/CourseEraCapstone_JKX" target="_blank" rel="noopener noreferrer" class="project-card__link">
-            View Project
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= Skills ======= -->
-  <section id="skills" class="skills">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Expertise</p>
-        <h2 class="section-title">Skills &amp; Tools</h2>
-      </div>
-      <div class="skills__grid">
-
-        <div class="skill-group fade-in">
-          <h3 class="skill-group__title">Languages</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">Python</span>
-            <span class="skill-pill">SQL</span>
-            <span class="skill-pill">Bash</span>
-            <span class="skill-pill">LaTeX</span>
-          </div>
-        </div>
-
-        <div class="skill-group fade-in">
-          <h3 class="skill-group__title">ML &amp; Deep Learning</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">PyTorch</span>
-            <span class="skill-pill">PyTorch Geometric</span>
-            <span class="skill-pill">Scikit-learn</span>
-            <span class="skill-pill">NumPy</span>
-            <span class="skill-pill">Pandas</span>
-          </div>
-        </div>
-
-        <div class="skill-group fade-in">
-          <h3 class="skill-group__title">Graph &amp; Spatial</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">NetworkX</span>
-            <span class="skill-pill">OSMnx</span>
-            <span class="skill-pill">Shapely</span>
-            <span class="skill-pill">GeoPandas</span>
-            <span class="skill-pill">Folium</span>
-          </div>
-        </div>
-
-        <div class="skill-group fade-in">
-          <h3 class="skill-group__title">Research Methods</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">Graph Neural Networks</span>
-            <span class="skill-pill">Variational Autoencoders</span>
-            <span class="skill-pill">Statistical Testing</span>
-            <span class="skill-pill">Ablation Studies</span>
-          </div>
-        </div>
-
-        <div class="skill-group fade-in">
-          <h3 class="skill-group__title">Tooling</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">Git &amp; GitHub</span>
-            <span class="skill-pill">Jupyter</span>
-            <span class="skill-pill">Matplotlib</span>
-            <span class="skill-pill">Seaborn</span>
-            <span class="skill-pill">Linux</span>
-          </div>
-        </div>
-
-        <div class="skill-group fade-in">
-          <h3 class="skill-group__title">Domains</h3>
-          <div class="skill-pills">
-            <span class="skill-pill">Transportation Networks</span>
-            <span class="skill-pill">Geospatial Analysis</span>
-            <span class="skill-pill">Graph Generation</span>
-            <span class="skill-pill">Urban Computing</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ======= Contact ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-header fade-in">
-        <p class="section-label">Let's Connect</p>
-        <h2 class="section-title">Get in Touch</h2>
-      </div>
-      <div class="contact__inner fade-in">
-        <p class="contact__text">
-          I'm always happy to discuss research collaborations, graph ML ideas,
-          or access to the HybridSTNG codebase. Feel free to reach out via GitHub
-          or connect with me through Florida Atlantic University.
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            Senior Software Architect and Technical Lead with 15+ years of experience transforming enterprise systems at Fortune 500 companies. 
+            Currently pursuing Ph.D. in Computer Science at Florida Atlantic University (anticipated Dec 2026), researching AI-driven optimization 
+            in distributed systems while leading cloud modernization initiatives in the insurance industry.
         </p>
-        <div class="contact__links">
-          <a href="https://github.com/jhansikx" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <!-- GitHub icon -->
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 0C5.37 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
-            </svg>
-            GitHub
-          </a>
-          <a href="https://github.com/jhansikx/constraint-first-ml-systems" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <!-- Research icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            Research
-          </a>
-          <a href="https://www.fau.edu" target="_blank" rel="noopener noreferrer" class="contact-link">
-            <!-- University icon -->
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
-            </svg>
-            Florida Atlantic University
-          </a>
+        <p>
+            <strong>Core Expertise:</strong> Domain-Driven Design, Event-Driven Architecture, Microservices, AI/ML Integration (LLMs, RAG), 
+            Cloud Platforms (AWS, Snowflake), Real-time Data Streaming (Kafka), and Enterprise Platform Modernization.
+        </p>
+        <p>
+            <strong>Industries:</strong> Insurance (Tokio Marine HCC), Financial Services (Radian), Airlines (United), Energy (Emerson), 
+            Laboratory Systems (SPL Inc.)
+        </p>
+        <p>
+            <strong>Education:</strong> Ph.D. Computer Science (in progress), M.Tech Information Technology, B.Tech Information Technology | 
+            <strong>Certifications:</strong> AWS Certified Solutions Architect, Microsoft Certified Azure Fundamentals
+        </p>
+    </section>
+
+    <section id="impact">
+        <h2>Impact Dashboard</h2>
+        <ul>
+            <li>15+ Years Experience</li>
+            <li>$100M+ Revenue Enablement</li>
+            <li>10+ Enterprise Platforms Modernized</li>
+            <li>3-15 Engineers Led</li>
+            <li>Millions of Transactions Processed</li>
+        </ul>
+    </section>
+
+    <section id="case-studies">
+        <h2>Architecture Case Studies</h2>
+        <p style="color: #64748b; margin-bottom: 2rem;">Click on any case study to expand and see the full details.</p>
+        
+        <div class="case-study">
+            <div class="case-study-header" onclick="toggleAccordion(this)">
+                <h3>Underwriting Workbench Modernization</h3>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="case-study-content">
+                <h4>Business Problem</h4>
+                <p>Legacy monolithic underwriting system with 20+ year old codebase caused slow time-to-market, scalability bottlenecks, and limited innovation capabilities for new insurance products.</p>
+                <h4>Constraints</h4>
+                <ul>
+                    <li>Zero downtime migration requirement</li>
+                    <li>Integration with 15+ legacy systems</li>
+                    <li>Regulatory compliance (SOC2, HIPAA)</li>
+                </ul>
+                <h4>Key Decisions</h4>
+                <ul>
+                    <li>Domain-Driven Design approach with bounded contexts</li>
+                    <li>Microservices architecture on AWS ECS</li>
+                    <li>Event-driven patterns using Kafka for service communication</li>
+                    <li>Strangler Fig pattern for gradual migration</li>
+                </ul>
+                <h4>Trade-offs</h4>
+                <ul>
+                    <li>Increased operational complexity vs. improved scalability</li>
+                    <li>Higher initial development cost vs. long-term maintainability</li>
+                </ul>
+                <h4>Business Outcome</h4>
+                <p>✅ Reduced policy processing time by 60% | 99.9% uptime achieved | Enabled 3 new product lines | $50M+ revenue enablement</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ======= Footer ======= -->
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 Jhansi Xavier · Built with HTML, CSS &amp; JavaScript · Hosted on GitHub Pages</p>
-    </div>
-  </footer>
+        <div class="case-study">
+            <div class="case-study-header" onclick="toggleAccordion(this)">
+                <h3>CDC Streaming Platform</h3>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="case-study-content">
+                <h4>Business Problem</h4>
+                <p>Real-time data synchronization needed across 20+ microservices and analytics platforms. Batch ETL processes caused 24-hour data latency impacting business decisions.</p>
+                <h4>Constraints</h4>
+                <ul>
+                    <li>Support for multiple database types (PostgreSQL, MongoDB, Oracle)</li>
+                    <li>Handle 1M+ events per day</li>
+                    <li>Maintain data consistency and ordering</li>
+                </ul>
+                <h4>Key Decisions</h4>
+                <ul>
+                    <li>Kafka-based streaming architecture with Confluent platform</li>
+                    <li>Debezium for Change Data Capture implementation</li>
+                    <li>Schema Registry for data contract governance</li>
+                    <li>CQRS pattern for read/write optimization</li>
+                </ul>
+                <h4>Trade-offs</h4>
+                <ul>
+                    <li>Eventually consistent vs. strongly consistent (chose eventual for scalability)</li>
+                    <li>Operational overhead of Kafka cluster vs. real-time capabilities</li>
+                </ul>
+                <h4>Business Outcome</h4>
+                <p>✅ Reduced data latency from 24 hours to <5 minutes | Enabled real-time analytics | 10M+ events processed daily | 99.95% reliability</p>
+            </div>
+        </div>
 
-  <script src="script.js"></script>
+        <div class="case-study">
+            <div class="case-study-header" onclick="toggleAccordion(this)">
+                <h3>AI Policy Document Generation</h3>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="case-study-content">
+                <h4>Business Problem</h4>
+                <p>Manual policy document creation took 2-3 hours per document with 15% error rate. Compliance team struggled with consistency across 500+ document types.</p>
+                <h4>Constraints</h4>
+                <ul>
+                    <li>Must maintain regulatory compliance and audit trail</li>
+                    <li>Support for complex legal language and state-specific requirements</li>
+                    <li>Integration with existing document management system</li>
+                </ul>
+                <h4>Key Decisions</h4>
+                <ul>
+                    <li>LLM-powered generation using GPT-4 with custom fine-tuning</li>
+                    <li>RAG (Retrieval Augmented Generation) architecture with vector database (Pinecone)</li>
+                    <li>Human-in-the-loop validation workflow</li>
+                    <li>Snowflake Cortex AI for analytics and monitoring</li>
+                </ul>
+                <h4>Trade-offs</h4>
+                <ul>
+                    <li>AI unpredictability vs. efficiency gains (mitigated with validation layer)</li>
+                    <li>Cost of LLM API calls vs. labor savings</li>
+                </ul>
+                <h4>Business Outcome</h4>
+                <p>✅ Reduced document generation time by 85% (15 minutes average) | Error rate decreased to <2% | $2M annual cost savings | 10,000+ documents generated</p>
+            </div>
+        </div>
+
+        <div class="case-study">
+            <div class="case-study-header" onclick="toggleAccordion(this)">
+                <h3>Snowflake Analytics Platform</h3>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="case-study-content">
+                <h4>Business Problem</h4>
+                <p>Fragmented data across 30+ systems prevented holistic business insights. Legacy on-premise data warehouse couldn't scale for growing data volumes (10TB+).</p>
+                <h4>Constraints</h4>
+                <ul>
+                    <li>Migrate 10+ years of historical data</li>
+                    <li>Support concurrent users (200+)</li>
+                    <li>Meet strict data governance requirements</li>
+                </ul>
+                <h4>Key Decisions</h4>
+                <ul>
+                    <li>Snowflake as cloud data warehouse for separation of compute/storage</li>
+                    <li>Snowflake Cortex AI integration for ML-powered insights</li>
+                    <li>Medallion architecture (Bronze-Silver-Gold) for data quality</li>
+                    <li>dbt (data build tool) for transformation logic</li>
+                </ul>
+                <h4>Trade-offs</h4>
+                <ul>
+                    <li>Cloud costs vs. on-premise maintenance (20% total cost reduction)</li>
+                    <li>Learning curve for new platform vs. modernization benefits</li>
+                </ul>
+                <h4>Business Outcome</h4>
+                <p>✅ Query performance improved 10x | 50TB data processed | Enabled self-service analytics for 200+ users | $3M infrastructure cost savings annually</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-research">
+        <h2>AI & Innovation</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                <h3 style="margin-top: 0;">Snowflake Cortex AI</h3>
+                <p>Implemented ML-powered analytics and document processing using Snowflake's native AI capabilities for insurance domain.</p>
+            </div>
+            <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                <h3 style="margin-top: 0;">LLM Applications</h3>
+                <p>Built production GPT-4 applications with custom fine-tuning for policy generation, achieving 85% time reduction.</p>
+            </div>
+            <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                <h3 style="margin-top: 0;">AI Agents</h3>
+                <p>Designed autonomous AI agents for workflow automation, document classification, and intelligent routing systems.</p>
+            </div>
+            <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                <h3 style="margin-top: 0;">RAG Architectures</h3>
+                <p>Architected Retrieval Augmented Generation systems using vector databases (Pinecone) for context-aware AI responses.</p>
+            </div>
+            <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                <h3 style="margin-top: 0;">Copilot Development</h3>
+                <p>Early adopter of AI-assisted development practices, achieving 30% productivity gains across engineering teams.</p>
+            </div>
+            <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+                <h3 style="margin-top: 0;">Ph.D. Research</h3>
+                <p>Ph.D. Candidate at Florida Atlantic University (anticipated Dec 2026) researching AI-driven optimization in distributed systems, event-driven architectures, and real-time processing. Published in IEEE Access.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <h3>Architecture & Design</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
+            <span style="background: #1e3a8a; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Domain-Driven Design</span>
+            <span style="background: #1e3a8a; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Microservices</span>
+            <span style="background: #1e3a8a; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Event-Driven Architecture</span>
+            <span style="background: #1e3a8a; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">CQRS</span>
+            <span style="background: #1e3a8a; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Event Sourcing</span>
+            <span style="background: #1e3a8a; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">REST/GraphQL APIs</span>
+        </div>
+        
+        <h3>Cloud & Infrastructure</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
+            <span style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">AWS (ECS, Lambda, S3, RDS)</span>
+            <span style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Azure</span>
+            <span style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Snowflake</span>
+            <span style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Docker</span>
+            <span style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Kubernetes</span>
+            <span style="background: #3b82f6; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Terraform</span>
+        </div>
+        
+        <h3>Data & Streaming</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
+            <span style="background: #667eea; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Apache Kafka</span>
+            <span style="background: #667eea; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Debezium</span>
+            <span style="background: #667eea; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">PostgreSQL</span>
+            <span style="background: #667eea; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">MongoDB</span>
+            <span style="background: #667eea; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Redis</span>
+            <span style="background: #667eea; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">dbt</span>
+        </div>
+        
+        <h3>AI & Machine Learning</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem;">
+            <span style="background: #764ba2; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">GPT-4 / LLMs</span>
+            <span style="background: #764ba2; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">RAG</span>
+            <span style="background: #764ba2; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Pinecone</span>
+            <span style="background: #764ba2; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Snowflake Cortex</span>
+            <span style="background: #764ba2; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">LangChain</span>
+            <span style="background: #764ba2; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">TensorFlow</span>
+        </div>
+        
+        <h3>Programming Languages</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <span style="background: #059669; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Python</span>
+            <span style="background: #059669; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">Java</span>
+            <span style="background: #059669; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">C#/.NET</span>
+            <span style="background: #059669; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">JavaScript/TypeScript</span>
+            <span style="background: #059669; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">SQL</span>
+            <span style="background: #059669; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">React</span>
+        </div>
+    </section>
+
+    <section id="leadership">
+        <h2>Leadership Philosophy</h2>
+        <ul>
+            <li>Mentoring engineers</li>
+            <li>Building high-performing teams</li>
+            <li>Architecture governance</li>
+            <li>Technical debt management</li>
+            <li>Scaling engineering organizations</li>
+        </ul>
+    </section>
+
+    <section id="publications">
+        <h2>Research & Publications</h2>
+        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; border-left: 4px solid #3b82f6;">
+            <h3 style="margin-top: 0;">IEEE Access Publication (2024)</h3>
+            <p><strong>Title:</strong> Optimization Techniques in Distributed Event-Driven Systems</p>
+            <p><strong>DOI:</strong> <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11626183">11626183</a></p>
+            <p><strong>Abstract:</strong> This research explores novel optimization strategies for event-driven architectures in distributed systems, focusing on latency reduction and throughput improvement in microservices environments.</p>
+        </div>
+        
+        <h3>Academic Profiles</h3>
+        <ul>
+            <li><a href="https://scholar.google.com/citations?user=Ry5LJ7QAAAAJ&hl=en">Google Scholar Profile</a> - View all publications and citations</li>
+            <li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11626183">IEEE Xplore</a> - Full text access</li>
+        </ul>
+        
+        <h3>Current Research Focus</h3>
+        <ul>
+            <li>AI-driven optimization in distributed systems</li>
+            <li>Real-time event processing and stream analytics</li>
+            <li>Machine learning applications in enterprise architecture</li>
+            <li>Performance optimization in microservices platforms</li>
+        </ul>
+    </section>
+
+    <section id="adr">
+        <h2>Architecture Decision Records</h2>
+        <p style="margin-bottom: 2rem; color: #64748b;">Key architectural decisions and the reasoning behind them:</p>
+        
+        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #3b82f6;">
+            <h3 style="margin-top: 0;">Why Domain-Driven Design?</h3>
+            <p>DDD provides a shared language between business and engineering, reducing misunderstandings and enabling faster iteration. By modeling bounded contexts around business domains, we achieved better team autonomy and reduced coupling between services. Critical for complex insurance domain with 50+ business concepts.</p>
+        </div>
+        
+        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #3b82f6;">
+            <h3 style="margin-top: 0;">Why Event-Driven Architecture?</h3>
+            <p>Event-driven patterns enable loose coupling and temporal decoupling between services, critical for scaling independent teams. Events provide natural audit trail for regulatory compliance. Chosen over synchronous APIs for better resilience - if a downstream service fails, events are persisted and can be replayed. Trade-off: Eventually consistent vs. immediate consistency.</p>
+        </div>
+        
+        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #3b82f6;">
+            <h3 style="margin-top: 0;">Why Snowflake?</h3>
+            <p>Snowflake's separation of compute and storage eliminates the traditional data warehouse bottleneck. Zero-copy cloning enables isolated dev/test environments without data duplication costs. Native JSON support and semi-structured data handling perfect for our polyglot data sources. 10x performance improvement over previous on-premise solution at 20% lower total cost.</p>
+        </div>
+        
+        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #3b82f6;">
+            <h3 style="margin-top: 0;">Why Apache Kafka?</h3>
+            <p>Kafka provides durability guarantees (replicated log) that message queues lack. Enables true pub-sub with multiple consumer groups reading same events independently. Consumer can replay events from any point in time - essential for debugging production issues and migrating to new services. Handles 10M+ events/day with <100ms latency.</p>
+        </div>
+        
+        <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #3b82f6;">
+            <h3 style="margin-top: 0;">Why Microservices?</h3>
+            <p>Microservices enable independent deployment cycles - critical when coordinating 5+ engineering teams. Technology heterogeneity allows choosing the right tool per service (Python for ML, Java for high-throughput APIs). Failure isolation prevents cascading failures. Trade-off: Operational complexity (monitoring, distributed tracing) vs. team autonomy and deployment flexibility. Worth it at our scale (15+ services, 40+ engineers).</p>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2>Career Timeline</h2>
+        <p style="color: #64748b; margin-bottom: 2rem;">Click on any position to expand and see the full details.</p>
+        
+        <div class="job">
+            <div class="job-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>Tokio Marine HCC</h3>
+                    <p class="role">Lead Software Engineer – Architecture & Modernization</p>
+                </div>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="job-content">
+                <p class="duration">Apr 2024 – Present | Houston, TX</p>
+                <p><strong>Focus:</strong> Cloud, Distributed Systems, & AI/ML</p>
+                <p>Lead a $100M+ portfolio of architecture and cloud modernization initiatives for the Underwriting Workbench (UWB). Owned technology and target-state architecture roadmap driving enterprise-wide digital underwriting transformation, system integrations, and product scalability supporting $500M+ in revenue and 100+ users globally.</p>
+                <ul>
+                    <li>Led enterprise platform modernization using Domain-Driven Design (DDD), Microservices, API Governance, and Anti-Corruption Layer (ACL) patterns, enabling expansion into 2 new markets ($100M+ in incremental revenue) and supporting enterprise underwriting operations for 25+ additional users.</li>
+                    <li>Architected expansion of digital underwriting capabilities to support increased throughput and user adoption in 3 global business units, integrating legacy underwriting, policy, and domain systems to accelerate policy processing by 50% and increasing platform adoption by 50%.</li>
+                    <li>Drove innovation and engineering excellence by implementing Snowflake Cortex, AI-assisted development, document intelligence, workflow automation, and a Defect Intelligence Dashboard, improving engineering productivity by 20–30%, strengthening release governance, and reducing production defect leakage.</li>
+                    <li>Enhanced platform reliability, security, and operational resilience through CI/CD, Terraform, Datadog, Application Insights, Okta, Zero Trust Security, and DPIA controls, improving compliance, observability, and overall platform stability.</li>
+                </ul>
+                <p><strong>Technologies:</strong> AWS, Snowflake Cortex, Kafka, Microservices, DDD, Terraform, Datadog, Okta, Python, Java, React</p>
+            </div>
+        </div>
+        
+        <div class="job">
+            <div class="job-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>SPL Inc.</h3>
+                    <p class="role">Software Engineering Manager | Cloud Modernization</p>
+                </div>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="job-content">
+                <p class="duration">Oct 2023 – Mar 2024 | Houston, TX</p>
+                <p><strong>Focus:</strong> Laboratory Systems</p>
+                <p>Managed a team of 3 offshore engineers. Led cloud modernization and enterprise application delivery initiatives supporting hydrocarbon testing, laboratory operations, and critical data management processes, partnering with 5+ business stakeholders globally and 2 offshore teams.</p>
+                <ul>
+                    <li>Defined technology roadmaps and delivered workflow, reporting, and certification solutions through cross-functional collaboration, release management, and coordination across global stakeholder groups and offshore teams, enabling more efficient laboratory processes, improved data visibility, and successful business outcomes.</li>
+                </ul>
+                <p><strong>Technologies:</strong> Cloud platforms, Laboratory information systems, Workflow automation</p>
+            </div>
+        </div>
+        
+        <div class="job">
+            <div class="job-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>Radian Inc.</h3>
+                    <p class="role">Senior Software Engineer / Technical Lead</p>
+                </div>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="job-content">
+                <p class="duration">Apr 2021 – Sep 2023 | Remote</p>
+                <p><strong>Focus:</strong> .NET | Mortgage Technology</p>
+                <p>Managed a team of 4 in delivering $1M+ in digital mortgage, real estate applications, property valuation, and lending platforms, driving solution design, architecture, development, testing, and production support. Led full-stack development and Agile delivery.</p>
+                <ul>
+                    <li>Architected and delivered enterprise workflow automation and system integration solutions across property valuation, title, and mortgage servicing platforms, reducing order cancellation processing time from 3-4 days to under 10 minutes and accelerating customer onboarding from 2-3 weeks to 1 day.</li>
+                    <li>Led platform modernization initiatives for real estate and mortgage operations platforms, driving cloud-native architecture, process automation, API integrations, and scalability improvements that enhanced customer experience, increased operational efficiency, and enabled high-volume transaction processing.</li>
+                </ul>
+                <p><strong>Technologies:</strong> .NET Core, Azure, Event Sourcing, CQRS, SQL Server, REST APIs</p>
+            </div>
+        </div>
+        
+        <div class="job">
+            <div class="job-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>Emerson</h3>
+                    <p class="role">Software Engineer – Identity & Access Management</p>
+                </div>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="job-content">
+                <p class="duration">Jun 2019 – Mar 2021 | Houston, TX</p>
+                <p><strong>Focus:</strong> Enterprise Integration</p>
+                <p>Designed and delivered secure enterprise applications and integration services supporting terminal management and operational reporting platforms for 10 sites while providing technical leadership and architecture guidance.</p>
+                <ul>
+                    <li>Architected and delivered enterprise terminal management and operational reporting platforms, designing scalable applications, integration services, and business-critical solutions supporting 10 terminal sites, while providing technical leadership and architecture governance to improve operational visibility, efficiency, and reliability.</li>
+                    <li>Designed and implemented secure, highly available enterprise platforms using Okta/OpenID Connect SSO, SQL Server Always On Availability Groups, and Failover Clustering, strengthening security, reducing downtime, improving system resiliency, and ensuring business continuity for mission-critical operations.</li>
+                </ul>
+                <p><strong>Technologies:</strong> .NET, Okta/OpenID Connect, SQL Server Always On, C#, Enterprise Integration</p>
+            </div>
+        </div>
+        
+        <div class="job">
+            <div class="job-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>United Airlines</h3>
+                    <p class="role">Software Engineer / Solution Architect</p>
+                </div>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="job-content">
+                <p class="duration">Dec 2013 – Jun 2019 | Houston, TX</p>
+                <p><strong>Focus:</strong> Airline Technology | Revenue Systems</p>
+                <p>Led modernization and enhancement of key systems including Amadeus Group Manager, Gemini, IRIS, and Held Seats, implementing duplicate-booking detection capabilities that protected $20M+ in revenue and improved inventory utilization.</p>
+                <ul>
+                    <li>Architected and modernized airline revenue management and forecasting platforms, leading the design and delivery of microservices, APIs, and enterprise integration solutions for IRIS and Gemini systems, improving forecasting accuracy, operational efficiency, and business decision-making.</li>
+                    <li>Led cross-functional engineering teams and offshore delivery for mission-critical airline applications, defining integration strategy, architecture standards, and production support governance to ensure highly available, scalable, and secure systems supporting booking, reservation, and revenue optimization operations.</li>
+                </ul>
+                <p><strong>Technologies:</strong> Java, Spring Boot, Oracle, REST APIs, Microservices, Angular</p>
+            </div>
+        </div>
+        
+        <div class="job">
+            <div class="job-header" onclick="toggleAccordion(this)">
+                <div>
+                    <h3>Additional Experience</h3>
+                    <p class="role">Software Developer Roles</p>
+                </div>
+                <span class="accordion-icon">▼</span>
+            </div>
+            <div class="job-content">
+                <h4>EZ2 Tech | Parsippany, NJ</h4>
+                <p class="duration">Aug 2011 – May 2013</p>
+                <p class="role">Software Developer</p>
+                
+                <h4 style="margin-top: 1.5rem;">Zeisys Tech | Chennai, India</h4>
+                <p class="duration">May 2008 – Dec 2009</p>
+                <p class="role">Software Developer Intern</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education" style="max-width: 1200px; margin: 2rem auto; padding: 3rem 2rem; background: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h2 style="color: #1e3a8a; font-size: 2.5rem; margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #3b82f6;">Education & Certifications</h2>
+        
+        <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #764ba2;">
+            <h3 style="color: #1e3a8a; margin-top: 0;">Florida Atlantic University</h3>
+            <p style="color: #3b82f6; font-weight: 600; font-size: 1.1rem;">Ph.D. – Computer Science</p>
+            <p style="color: #64748b; font-style: italic;">Dec 2026 (Anticipated)</p>
+            <p><strong>Research Focus:</strong> AI-driven optimization in distributed systems, event-driven architectures, and real-time processing</p>
+        </div>
+        
+        <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; border-left: 4px solid #3b82f6;">
+            <h3 style="color: #1e3a8a; margin-top: 0;">Anna University</h3>
+            <p style="color: #3b82f6; font-weight: 600; font-size: 1.1rem;">Master of Technology (M.Tech), Information Technology</p>
+            <p style="color: #64748b; font-style: italic;">May 2011</p>
+        </div>
+        
+        <div style="background: #f0f9ff; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem; border-left: 4px solid #3b82f6;">
+            <h3 style="color: #1e3a8a; margin-top: 0;">Anna University</h3>
+            <p style="color: #3b82f6; font-weight: 600; font-size: 1.1rem;">Bachelor of Technology (B.Tech), Information Technology</p>
+            <p style="color: #64748b; font-style: italic;">May 2008</p>
+        </div>
+        
+        <h3 style="color: #3b82f6; font-size: 1.8rem; margin-top: 2rem; margin-bottom: 1rem;">Professional Certifications</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 1.5rem; border-radius: 8px; font-weight: 600;">
+                AWS Certified Solutions Architect
+            </div>
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 1.5rem; border-radius: 8px; font-weight: 600;">
+                Microsoft Certified Azure Fundamentals
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2>Speaking & Thought Leadership</h2>
+        <ul>
+            <li><a href="https://medium.com/@jhansikx">Medium articles</a></li>
+            <li>LinkedIn posts</li>
+            <li>Internal presentations</li>
+            <li>Architecture reviews</li>
+            <li>Mentoring initiatives</li>
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Let's Connect</h2>
+        <p style="font-size: 1.2rem; color: #1e3a8a; margin-bottom: 2rem;">
+            <strong>Open to:</strong> Technical Leadership roles, Architecture Consulting, Speaking Engagements, Research Collaborations
+        </p>
+        
+        <h3>Email</h3>
+        <p style="font-size: 1.2rem;"><a href="mailto:jhansikx@gmail.com">jhansikx@gmail.com</a></p>
+        
+        <h3>Location</h3>
+        <p style="font-size: 1.1rem; color: #64748b;">📍 Houston, TX | ✈️ Open to Remote</p>
+        
+        <h3>Professional Links</h3>
+        <ul>
+            <li><a href="https://www.linkedin.com/in/jhansi-xavier">LinkedIn</a> - Professional network and updates</li>
+            <li><a href="https://medium.com/@jhansikx">Medium</a> - Technical articles and thought leadership</li>
+            <li><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=11626183">IEEE Research Publication</a> - Latest research paper</li>
+            <li><a href="https://scholar.google.com/citations?user=Ry5LJ7QAAAAJ&hl=en">Google Scholar</a> - Academic publications</li>
+        </ul>
+    </section>
+    
+    <footer style="background: #1e3a8a; color: white; text-align: center; padding: 2rem; margin-top: 3rem;">
+        <p>&copy; 2026 Jhansi Xavier. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Last updated: August 2026</p>
+        <div style="margin-top: 1rem;">
+            <a href="https://www.linkedin.com/in/jhansi-xavier" style="color: white; margin: 0 1rem;">LinkedIn</a>
+            <a href="https://medium.com/@jhansikx" style="color: white; margin: 0 1rem;">Medium</a>
+            <a href="https://scholar.google.com/citations?user=Ry5LJ7QAAAAJ&hl=en" style="color: white; margin: 0 1rem;">Scholar</a>
+        </div>
+    </footer>
 </body>
 </html>
